@@ -16,6 +16,6 @@
 * To be Added
 
 ## Contributors
-Melanie Schellberg
-Stefanie Tinsley
+Melanie Schellberg,
+Stefanie Tinsley,
 Evan Werner
