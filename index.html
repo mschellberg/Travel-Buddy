@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/stylesheet.css" />
   </head>
-
+<body>
 <!--Hero Section-->
   <section class="hero is-small is-info is-bold">
     <div class="hero-head">
@@ -74,9 +74,9 @@
         <div class="media">
           <div class="media-content">
             <p class="title is-4">Location A Map</p>
-            <form>
+            <form id="user-form-one">
               <label for="name">Desired Destination:</label>
-              <input class="input is-info" type="text" placeholder="Enter Location">
+              <input id = "destination-one" class="input is-info" type="text" placeholder="Enter Location">
               <input class="button" type="submit" value="Get Planning!">            </input>
             </form>
           </div>
@@ -93,20 +93,22 @@
         <div class="card">
             <div class="card-image">
                 <figure class="image is-128x128">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                    <img src="./assets/images/weather-icon.png" alt="Placeholder image">
                 </figure>
             </div>
           <div class="card-content">
             <div class="media">
                 <div class="media-content">
-                    <p class="title is-4">Location A Weather Info</p>
+                    <p class="title is-4">
+                    <span id="weather-search-term-one"></span> </p>
+                    <div id="weather-container-one"></div>
+                    <h2 id="current-city-title"></h2>
+                              <p>Temperature: <span id="current-city-temp"></span> °F</p>
+                              <p>Humidity: <span id="current-city-humidity"></span>%</p>
+                              <p>Wind Speed: <span id="current-city-wind" ></span> MPH</p>
                 </div>
             </div>
-        
-            <div class="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Phasellus nec iaculis mauris.
-            </div>
+
           </div>
         </div>
     </div>
@@ -124,7 +126,7 @@
             <div class="media">
                 <div class="media-content">
                     <p class="title is-4">Location B Map</p>
-                    <form>
+                    <form id="user-form-two">
                       <label for="name">Desired Destination:</label>
                       <input class="input is-info" type="text" placeholder="Enter Location">
                       <input class="button" type="submit" value="Get Planning!">            </input>
@@ -143,28 +145,34 @@
        <div class="card">
         <div class="card-image">
             <figure class="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                <img src="./assets/images/weather-icon.png" alt="Placeholder image">
             </figure>
         </div>
-      <div class="card-content">
-        <div class="media">
-            <div class="media-content">
-                <p class="title is-4">Location B Weather Info</p>
-            </div>
-        </div>
-    
-        <div class="content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Phasellus nec iaculis mauris.
-        </div>
+        <div class="card-content">
+          <div class="media">
+              <div class="media-content">
+                  <p class="title is-4">
+                  <span id="weather-search-term-two"></span> </p>
+                  <div id="weather-container-two"></div>
+                  <h2 id="current-city-title"></h2>
+                            <p>Temperature: <span id="current-city-temp-two"></span> °F</p>
+                            <p>Humidity: <span id="current-city-humidity-two"></span>%</p>
+                            <p>Wind Speed: <span id="current-city-wind-two" ></span> MPH</p>
+              </div>
+          </div>
       </div>
     </div>
     </div>
   </div>
 </div>
 
-
+<di class="row">
+  <center>
+    <img src="./assets/images/IG-IMG.png">
+  </center>
+</di>
   <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  <script src="./assets/js/homepage.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
 <footer class="has-background-primary">
