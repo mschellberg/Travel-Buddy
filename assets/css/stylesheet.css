@@ -11,3 +11,8 @@
   font-family: TBD 
   */
 
+.hero {
+  background-image: url("../images/hero-img.gif");
+      background-size: cover;
+      background-position: center;
+}

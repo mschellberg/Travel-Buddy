@@ -28,6 +28,7 @@ var formSubmitHandler = function(event) {
     alert("Please enter a city and state")
     return;
   };
+
 };
 
 //Weather B
