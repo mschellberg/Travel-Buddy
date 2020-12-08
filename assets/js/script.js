@@ -10,14 +10,10 @@ function initMap() {
             map: map,
             draggable: true
     });
-
-// Map A Search Box
-var input = document.getElementById("autocomplete");
-var searchBox = new google.maps.places.SeachBox(input);
-
 // Map A Search Box
     var input = document.getElementById("autocomplete");
     var searchBox = new google.maps.places.SearchBox(input);
+    
 
     google.maps.event.addListener(searchBox, 'places_changed', function(){
         var places = searchBox.getPlaces();
