@@ -10,7 +10,16 @@
   font-family: TBD
   font-family: TBD 
   */
+  #map {
+    height:200px;
+    width: 100%;
+}
 
+
+#map2 {
+    height:200px;
+    width: 100%;
+}
 .hero {
   background-image: url("../images/hero-img.gif");
       background-size: cover;
