@@ -9,58 +9,73 @@
   </head>
 
 <!--Hero Section-->
-  <section class="hero is-small is-info is-bold">
-    <div class="hero-head">
-      <nav class="navbar">
-        <div class="container">
-          <div id="navbarMenuHeroB" class="navbar-menu">
-            <div class="navbar-end">
-              <a class="navbar-item is-active">
-                Home
-              </a>
-              <a class="navbar-item">
-                Weather
-              </a>
-              <a class="navbar-item">
-                Saved Trips
-              </a>
-            </div>
+<section class="hero is-info is-medium">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="assets/images/logo-idea-2-white.png" alt="Logo">
+          </a>
+          <span class="navbar-burger burger" data-target="navbarMenuHeroB">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroB" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item is-active">
+              Home
+            </a>
+            <a class="navbar-item">
+              Maps
+            </a>
+            <a class="navbar-item">
+              Weather
+            </a>
+            <a class="navbar-item">
+              Saved Trips
+            </a>
           </div>
         </div>
-      </nav>
-    </div>
-  
-    <div class="hero-body">
-      <div class="brand">
-        <a href="../Travel-Buddy/index.html">
-        <figure class="image is-128x128">
-          <img class="is-rounded" src="./assets/images/Globe.png" alt="Logo">
-        </figure>
-        </a>
       </div>
-      <div class="container has-text-centered">
-        <p class="title">
-          Nomader Where U.S.
-        </p>
-        <p class="subtitle">
-          Your National Trip Assistant!
-        </p>
-      </div>
+    </nav>
+  </div>
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        A Unique way to plan your next trip!
+      </p>
+      <p class="subtitle">
+        With Nomader Where U.S., you can plan epic trips by comparing two destinations across the U.S. 
+
+      </p>
     </div>
-  </section>
+  </div>
+
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul>
+          <li>
+            <a>Home</a>
+          </li>
+          <li>
+            <a href="index2.html">Saved Trips</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
+
 
 <body class="has-background-light">
   <!--Test Card HTML Format-->
 <div class="columns is-multiline is-mobile">
     <!--Left side columnt-->
-  <div class="column ">
-    <ol>
-      <li>Local storage linik for popular Location One</li>
-      <li>Local storage linik for popular Location Two</li>
-      <li>Local storage linik for popular Location Three</li>
-      <li>Local storage linik for popular Location Four</li>
-    </ol>
-  </div>
+
     <!--Cards holding Maps and Weather-->
   <div class="rows">
     <div class="column">
@@ -74,74 +89,46 @@
         <div class="media">
           <div class="media-content">
             <div class="title" id="locationTitle"></div>
-            <form>
+            <form class="user-form-one">
               <label for="name">Desired Destination:</label>
-              <input class="input is-info" type="text" id="autocomplete" placeholder="Enter Location">
+              <input class="input is-info autocomplete" type="text" id="autocomplete" placeholder="Enter Location">
               <input class="button" type="submit" value="Get Planning!">            </input>
             </form>
           </div>
         </div>
-    
-        <div class="content">
+    <div class="content">
           The search keyword's submit button should use that keyword as search criteria
         </div>
       </div>
     </div>
   
-    </div>
-      <div class="column">
-        <div class="card">
-            <div class="card-image">
-                <figure class="image is-128x128">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                </figure>
-            </div>
-          <div class="card-content">
-            <div class="media">
-                <div class="media-content">
-                    <p class="title is-4">Location A Weather Info</p>
-                </div>
-            </div>
-        
-            <div class="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Phasellus nec iaculis mauris.
-            </div>
-          </div>
-        </div>
-    </div>
   </div>
-  
-    <div class="rows">
-    <div class="column">
-        <div class="card">
-            <div class="card-image">
-                <figure class="image is-128x128">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                </figure>
-            </div>
-          <div class="card-content">
-            <div class="media">
-                <div class="media-content">
-                    <p class="title is-4">Location B Map</p>
-                    <form>
-                      <label for="name">Desired Destination:</label>
-                      <input class="input is-info" type="text" placeholder="Enter Location">
-                      <input class="button" type="submit" value="Get Planning!">            </input>
-                    </form>
-                </div>
-            </div>
-        
-            <div class="content">
-              The search keyword's submit button should use that keyword as search criteria
-            </div>
-          </div>
-        </div>
-    </div>
-  
-    <div class="column">
-       <div class="card">
+  <div class="column">
+    <div class="card">
         <div class="card-image">
+        </div>
+      <div class="card-content">
+        <div class="media">
+            <div class="media-content">
+                <p class="title is-4">
+                <span id="weather-search-term-one" class="weather-search-term-one"></span> </p>
+                <div id="weather-container-one"></div>
+                <h2 id="current-city-title"></h2>
+                          <p>Temperature: <span id="current-city-temp"></span> °F</p>
+                          <p>Humidity: <span id="current-city-humidity"></span>%</p>
+                          <p>Wind Speed: <span id="current-city-wind" ></span> MPH</p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+</div>
+</div>
+
+<div class="rows">
+<div class="column">
+    <div class="card">
+        <div class="card-image" id="map2">
             <figure class="image is-128x128">
                 <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
             </figure>
@@ -149,27 +136,54 @@
       <div class="card-content">
         <div class="media">
             <div class="media-content">
-                <p class="title is-4">Location B Weather Info</p>
+                <div class="title" id="locationTitle2"></div>
+                <form class="user-form-two">
+                  <label for="name">Desired Destination:</label>
+                  <input  class="input is-info autocomplete" type="text" id="autocomplete2" placeholder="Enter Location">
+                  <input class="button" type="submit" value="Get Planning!">            </input>
+                </form>
             </div>
         </div>
     
         <div class="content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Phasellus nec iaculis mauris.
+          The search keyword's submit button should use that keyword as search criteria
         </div>
       </div>
     </div>
-    </div>
-  </div>
 </div>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="./assets/js/script.js"></script>
-  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY3JAw5zIUpQLboyxPQksNoQiOKF0_63U&libraries=places&callback=initMap" type="text/javascript"></script>
-</body>
+<div class="column">
+   <div class="card">
+    <div class="card-image">
+    </div>
+    <div class="card-content">
+      <div class="media">
+          <div class="media-content">
+              <p class="title is-4">
+              <span id="weather-search-term-two" class="weather-search-term-one"></span> </p>
+              <div id="weather-container-two"></div>
+              <h2 id="current-city-title"></h2>
+                        <p>Temperature: <span id="current-city-temp-two"></span> °F</p>
+                        <p>Humidity: <span id="current-city-humidity-two"></span>%</p>
+                        <p>Wind Speed: <span id="current-city-wind-two" ></span> MPH</p>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
 <footer class="has-background-primary">
   <h2>Created by Us for You__________________________________________________________footer stuff down here</h2>
 </footer>
+
+
+<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="./assets/js/script.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY3JAw5zIUpQLboyxPQksNoQiOKF0_63U&libraries=places&callback=initMap" type="text/javascript"></script>
+</body>
+
 </html>
