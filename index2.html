@@ -25,16 +25,16 @@
         </div>
         <div id="navbarMenuHeroB" class="navbar-menu">
           <div class="navbar-end">
-            <a class="navbar-item is-active">
+            <a class="navbar-item" href="index.html">
               Home
             </a>
-            <a class="navbar-item">
+            <a class="navbar-item" href="#maps">
               Maps
             </a>
-            <a class="navbar-item">
+            <a class="navbar-item" href="#weather">
               Weather
             </a>
-            <a class="navbar-item">
+            <a class="navbar-item" href="index2.html">
               Saved Trips
             </a>
           </div>
@@ -79,7 +79,7 @@
 <div class="columns is-multiline is-mobile is-centered">
     <!--Cards holding Maps and Weather-->
   <div class="rows">
-    <div class="column">
+    <div class="column" id="maps">
        <div class="card">
       <div class="card-image" id="map">
         <figure class="image is-128x128">
@@ -104,13 +104,13 @@
     </div>
   
   </div>
-  <div class="column">
+  <div class="column" id="weather">
     <div class="card">
         <div class="card-image">
         </div>
       <div class="card-content">
         <div class="media">
-            <div class="media-content">
+            <div class="media-content five-day-forecast" id="forecast-card-container"">
                 <p class="title is-4">
                 <span id="weather-search-term-one" class="weather-search-term-one"></span> </p>
                 <div id="weather-container-one"></div>
@@ -183,11 +183,13 @@
   <h2>Created by Us for You__________________________________________________________footer stuff down here</h2>
 </footer>
 
+
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="assets/js/script.js"></script>
+<script src="./assets/js/script.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY3JAw5zIUpQLboyxPQksNoQiOKF0_63U&libraries=places&callback=initMap" type="text/javascript"></script>
 </body>
+
 </html>

@@ -59,7 +59,7 @@ function initMap() {
 
       map2.fitBounds(bounds2);
       map2.setZoom(15);
-      event.preventDefault();
+      
 });
 }
 /*
@@ -82,6 +82,7 @@ var userFormOneEl = document.querySelector(".user-form-one");
 var weatherContainerEl = document.querySelector("#weather-container-one");
 var weatherSearchTerm = document.querySelector("#weather-search-term-one");
 var destinationOneInputEl = document.querySelector("#autocomplete");
+var currentConditions = document.getElementById("current-conditions");
 var currentCityTemp = document.getElementById("current-city-temp");
 var currentCityWindSpeed = document.getElementById("current-city-wind");
 var currentCityHumidity = document.getElementById("current-city-humidity");
@@ -197,7 +198,7 @@ var iconUrl = "https://openweathermap.org/img/w/" + weatherData.weather[0].icon 
 
 
 weatherSearchTerm.innerHTML = weatherData.name + '<img src="' + iconUrl + '">' 
- currentCityWindSpeed.innerHTML =  weatherData.wind.speed 
+currentCityWindSpeed.innerHTML =  weatherData.wind.speed 
  currentCityHumidity.innerHTML = weatherData.main.humidity 
  currentCityTemp.innerHTML = weatherData.main.temp 
 
