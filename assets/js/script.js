@@ -89,7 +89,7 @@ var currentCityTemp = document.getElementById("current-city-temp");
 var currentCityWindSpeed = document.getElementById("current-city-wind");
 var currentCityHumidity = document.getElementById("current-city-humidity");
 //below is for Weather B
-var userFormTwoEl = document.querySelector("#user-form-two");
+var userFormTwoEl = document.querySelector(".user-form-two");
 var weatherContainerTwoEl = document.querySelector("#weather-container-two");
 var weatherSearchTermTwo = document.querySelector("#weather-search-term-two");
 var destinationTwoInputEl = document.querySelector("#autocomplete2");
