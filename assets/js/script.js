@@ -14,7 +14,7 @@ function initMap() {
   map = new google.maps.Map(
       document.getElementById('map'), {center: philadelphia, zoom:13});
 
-      const marker = new google.maps.Marker({
+      var marker = new google.maps.Marker({
           position: philadelphia,
           map: map,
           draggable: true
@@ -22,6 +22,7 @@ function initMap() {
 // Map A Search Box
   var input = document.getElementById("autocomplete");
   var searchBox = new google.maps.places.SearchBox(input);
+  console.log(input)
 
   google.maps.event.addListener(searchBox, 'places_changed', function(){
       var places = searchBox.getPlaces();
@@ -256,10 +257,12 @@ $("#start").click(function() {
   $("#plan").trigger('click')
 
 
-
   // Push second location to second map
   $("#autocomplete2").val(localStorage.getItem('location2'));
   // Map 2 Search Box
   $("#plan2").trigger('click')
 });
 
+$("#cancel").click(function() {
+  $("#welcome").removeClass("is-active")
+});
