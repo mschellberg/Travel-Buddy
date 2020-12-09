@@ -237,6 +237,8 @@ weatherSearchTermTwo.innerHTML = weatherData.name + '<img src="' + iconUrl + '">
 //event listeners
 userFormOneEl.addEventListener("mouseenter", formSubmitHandler);
 userFormTwoEl.addEventListener("mouseenter", formSubmitHandlerTwo);
+userFormOneEl.addEventListener("submit", formSubmitHandler);
+userFormTwoEl.addEventListener("submit", formSubmitHandlerTwo);
 
 // Modal
 /*$(document).ready(function() {
