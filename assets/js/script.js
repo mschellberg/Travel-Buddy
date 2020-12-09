@@ -1,3 +1,12 @@
+$(document).ready(function() {
+  var returnVisit = localStorage.getItem('returnVisit');
+  if (returnVisit== null) {
+      localStorage.setItem('returnVisit', 1);
+
+      $("#welcome").addClass("is-active");
+  };
+});
+
 // Setting up the map - Map A
 function initMap() {
   var philadelphia = new google.maps.LatLng(39.9526, -75.1652);
@@ -5,7 +14,7 @@ function initMap() {
   map = new google.maps.Map(
       document.getElementById('map'), {center: philadelphia, zoom:13});
 
-      const marker = new google.maps.Marker({
+      var marker = new google.maps.Marker({
           position: philadelphia,
           map: map,
           draggable: true
@@ -13,9 +22,10 @@ function initMap() {
 // Map A Search Box
   var input = document.getElementById("autocomplete");
   var searchBox = new google.maps.places.SearchBox(input);
+  console.log(input)
 
   google.maps.event.addListener(searchBox, 'places_changed', function(){
-      var places = searchBox.getPlaces();
+      var places = this.getPlaces();
      
       var srcLocation = $(input).val();
 // Location search appears in the title element
@@ -29,6 +39,7 @@ function initMap() {
       }
       map.fitBounds(bounds);
       map.setZoom(15);
+      
   });
 
 // Map B
@@ -37,7 +48,7 @@ function initMap() {
   new google.maps.Map(
       document.getElementById('map2'), {center: philadelphia2, zoom:13});
 
-      const marker2 = new google.maps.Marker({
+      var marker2 = new google.maps.Marker({
           position: philadelphia2,
           map: map2,
           draggable: true
@@ -59,7 +70,6 @@ function initMap() {
 
       map2.fitBounds(bounds2);
       map2.setZoom(15);
-      
 });
 }
 /*
@@ -82,7 +92,6 @@ var userFormOneEl = document.querySelector(".user-form-one");
 var weatherContainerEl = document.querySelector("#weather-container-one");
 var weatherSearchTerm = document.querySelector("#weather-search-term-one");
 var destinationOneInputEl = document.querySelector("#autocomplete");
-var currentConditions = document.getElementById("current-conditions");
 var currentCityTemp = document.getElementById("current-city-temp");
 var currentCityWindSpeed = document.getElementById("current-city-wind");
 var currentCityHumidity = document.getElementById("current-city-humidity");
@@ -198,12 +207,20 @@ var iconUrl = "https://openweathermap.org/img/w/" + weatherData.weather[0].icon 
 
 
 weatherSearchTerm.innerHTML = weatherData.name + '<img src="' + iconUrl + '">' 
-currentCityWindSpeed.innerHTML =  weatherData.wind.speed 
+ currentCityWindSpeed.innerHTML =  weatherData.wind.speed 
  currentCityHumidity.innerHTML = weatherData.main.humidity 
  currentCityTemp.innerHTML = weatherData.main.temp 
 
  
 };
+
+
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------
 
 var displayCurrentWeatherTwo =function (weatherData) {
 
@@ -215,10 +232,44 @@ weatherSearchTermTwo.innerHTML = weatherData.name + '<img src="' + iconUrl + '">
  currentCityHumidityTwo.innerHTML = weatherData.main.humidity 
  currentCityTempTwo.innerHTML = weatherData.main.temp 
  
-
- 
 };
 
 //event listeners
-userFormOneEl.addEventListener("submit", formSubmitHandler);
-userFormTwoEl.addEventListener("submit", formSubmitHandlerTwo);
+userFormOneEl.addEventListener("mouseenter", formSubmitHandler);
+userFormTwoEl.addEventListener("mouseenter", formSubmitHandlerTwo);
+
+// Modal
+/*$(document).ready(function() {
+  var returnVisit = localStorage.getItem('returnVisit');
+  if (returnVisit== null) {
+      localStorage.setItem('returnVisit', 1);
+      $("#welcome").addClass("is-active");
+  };
+});*/
+
+
+// Get started button pre-loading location values
+$("#start").click(function() {
+  $("#welcome").removeClass("is-active")
+  var inputOne = $("#location-1");
+  localStorage.setItem("location1", inputOne.val());
+  var inputTwo = $("#location-2");
+  localStorage.setItem("location2", inputTwo.val());
+
+  
+  // Push first location to map
+  $("#autocomplete").val(localStorage.getItem('location1'));
+
+  // Map 1 Search Box
+  $("#plan").trigger('click')
+
+
+  // Push second location to second map
+  $("#autocomplete2").val(localStorage.getItem('location2'));
+  // Map 2 Search Box
+  $("#plan2").trigger('click')
+});
+
+$("#cancel").click(function() {
+  $("#welcome").removeClass("is-active")
+});
