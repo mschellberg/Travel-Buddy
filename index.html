@@ -99,26 +99,21 @@
           </div>
         </div>
     <div class="content">
-          The search keyword's submit button should use that keyword as search criteria
         </div>
       </div>
     </div>
   
   </div>
-  <div class="column" id="weather">
+  <div class="column" id="forecast">
     <div class="card">
         <div class="card-image">
         </div>
       <div class="card-content">
         <div class="media">
-            <div class="media-content five-day-forecast" id="forecast-card-container"">
-                <p class="title is-4">
-                <span id="weather-search-term-one" class="weather-search-term-one"></span> </p>
-                <div id="weather-container-one"></div>
+            <div class="media-content five-day-forecast" id="forecast-card-container">
+                <center><h1 class="is-size-4 has-text-info">5-Day Forecast: </h1></center>
                 <h2 id="current-city-title"></h2>
-                          <p>Temperature: <span id="current-city-temp"></span> °F</p>
-                          <p>Humidity: <span id="current-city-humidity"></span>%</p>
-                          <p>Wind Speed: <span id="current-city-wind" ></span> MPH</p>
+                <div class="card-deck" id="forecast-cards"></div>
             </div>
         </div>
 
@@ -148,7 +143,6 @@
         </div>
     
         <div class="content">
-          The search keyword's submit button should use that keyword as search criteria
         </div>
       </div>
     </div>
@@ -160,14 +154,10 @@
     </div>
     <div class="card-content">
       <div class="media">
-          <div class="media-content">
-              <p class="title is-4">
-              <span id="weather-search-term-two" class="weather-search-term-one"></span> </p>
-              <div id="weather-container-two"></div>
-              <h2 id="current-city-title"></h2>
-                        <p>Temperature: <span id="current-city-temp-two"></span> °F</p>
-                        <p>Humidity: <span id="current-city-humidity-two"></span>%</p>
-                        <p>Wind Speed: <span id="current-city-wind-two" ></span> MPH</p>
+        <div class="media-content five-day-forecast" id="forecast-card-container">
+          <center><h1 class="is-size-4 has-text-info">5-Day Forecast: </h1></center>
+          <h2 id="current-city-title"></h2>
+          <div class="card-deck" id="forecast-cards-two"></div>
           </div>
       </div>
   </div>
@@ -220,6 +210,7 @@
 
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="./assets/js/script.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 <script async defer

@@ -92,17 +92,16 @@ var userFormOneEl = document.querySelector(".user-form-one");
 var weatherContainerEl = document.querySelector("#weather-container-one");
 var weatherSearchTerm = document.querySelector("#weather-search-term-one");
 var destinationOneInputEl = document.querySelector("#autocomplete");
-var currentCityTemp = document.getElementById("current-city-temp");
-var currentCityWindSpeed = document.getElementById("current-city-wind");
-var currentCityHumidity = document.getElementById("current-city-humidity");
+
+//FORECAST
+var forecastCardsEl= document.getElementById("forecast-cards");
+var forecastCardsTwoEl= document.getElementById("forecast-cards-two");
 //below is for Weather B
 var userFormTwoEl = document.querySelector(".user-form-two");
 var weatherContainerTwoEl = document.querySelector("#weather-container-two");
 var weatherSearchTermTwo = document.querySelector("#weather-search-term-two");
 var destinationTwoInputEl = document.querySelector("#autocomplete2");
-var currentCityTempTwo = document.getElementById("current-city-temp-two");
-var currentCityWindSpeedTwo = document.getElementById("current-city-wind-two");
-var currentCityHumidityTwo = document.getElementById("current-city-humidity-two");
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -165,73 +164,108 @@ if(city) {
 
 
 var getUserCity = function(city, state) {
-fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + state + "&units=imperial&appid=6a22242f54371d060e263ed6f93748a9")
+fetch("https://api.openweathermap.org/data/2.5/forecast/?q=" + city + "," + state + "&cnt=5&units=imperial&appid=6a22242f54371d060e263ed6f93748a9")
 .then(function(response) {
   if (response.ok) {
     response.json().then(function(data) {
     displayCurrentWeather(data)
      console.log(data);
     });
-  } /*else {
-    alert("Error!");
-  }*/
+  } 
 })
-/*.catch(function(error) {
-alert("unable to connect to Weather App");
-});*/
+
 };
+
+
 
 //Weather B
 var getUserCityTwo = function(city, state) {
-fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + state + "&units=imperial&appid=6a22242f54371d060e263ed6f93748a9")
+fetch("https://api.openweathermap.org/data/2.5/forecast/?q=" + city + "," + state + "&cnt=5&units=imperial&appid=6a22242f54371d060e263ed6f93748a9")
 .then(function(response) {
   if (response.ok) {
     response.json().then(function(data) {
     displayCurrentWeatherTwo(data)
     });
-  } /*else {
-    alert("Error!");
-  }*/
+  } 
 })
-/*.catch(function(error) {
-alert("unable to connect to Weather App");
-});*/
+
 };
 
 
 
 var displayCurrentWeather =function (weatherData) {
+forecastCardsEl.innerHTML = ''
+
+  for (var i= 0;  i < weatherData.list.length; i+=8 ) {
+
+    date =[moment().add(1,'days').format('L'),moment().add(2,'days').format('L'),moment().add(3,'days').format('L'),moment().add(4,'days').format('L'),moment().add(5,'days').format('L')]
+
+    for(vari=0; i<date.length; i++){
 
 
-var iconUrl = "https://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png";
+      var forecastiIconUrl = "https://openweathermap.org/img/w/" + weatherData.list[i].weather[0].icon + ".png";
 
+      var div = document.createElement("div")
+      div.classList.add("column")
 
-weatherSearchTerm.innerHTML = weatherData.name + '<img src="' + iconUrl + '">' 
- currentCityWindSpeed.innerHTML =  weatherData.wind.speed 
- currentCityHumidity.innerHTML = weatherData.main.humidity 
- currentCityTemp.innerHTML = weatherData.main.temp 
+                    
+      var innerHtml = 
+      '<div class="columns">' + 
+      '<div class="column">' + 
+     '<div class="card">' + 
+        '<div class="card-body has-background-info has-text-white"">' +
+            '<center>' +
+            '<h5 class="card-title is-size-5">'+ date[i] +'</h5>' +
+            '<p class="card-text"><img src="' + forecastiIconUrl + '"></p>' + 
+            '<p class="card-text"><b>High:</b> '+weatherData.list[i].main.temp_max+' °F</p>' +
+            '<p class="card-text"><b>Low:</b> '+weatherData.list[i].main.temp_min+' °F</p>' +
+           '<p class="card-text"><b>Humidity:</b> '+weatherData.list[i].main.humidity+'%</p>' +
+           '<p class="card-text"><b>Wind Speed:</b> '+weatherData.list[i].wind.speed+' MPH</p>' +
+          '</div>' +
+      '</div>'
 
- 
+      div.innerHTML = innerHtml
+     forecastCardsEl.appendChild(div)
+    }; 
+  };
 };
 
 
-
-
-
-
-
-//------------------------------------------------------------------------------------------------------------------------------------------
-
 var displayCurrentWeatherTwo =function (weatherData) {
+  forecastCardsTwoEl.innerHTML = ''
 
-var iconUrl = "https://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png";
+  for (var i= 0;  i < weatherData.list.length; i+=8 ) {
+
+    date =[moment().add(1,'days').format('L'),moment().add(2,'days').format('L'),moment().add(3,'days').format('L'),moment().add(4,'days').format('L'),moment().add(5,'days').format('L')]
+
+    for(vari=0; i<date.length; i++){
 
 
-weatherSearchTermTwo.innerHTML = weatherData.name + '<img src="' + iconUrl + '">' 
- currentCityWindSpeedTwo.innerHTML =  weatherData.wind.speed 
- currentCityHumidityTwo.innerHTML = weatherData.main.humidity 
- currentCityTempTwo.innerHTML = weatherData.main.temp 
- 
+      var forecastiIconUrl = "https://openweathermap.org/img/w/" + weatherData.list[i].weather[0].icon + ".png";
+
+      var div = document.createElement("div")
+      div.classList.add("column")
+
+                    
+      var innerHtml = 
+      '<div class="columns">' + 
+      '<div class="column">' + 
+     '<div class="card">' + 
+        '<div class="card-body has-background-info has-text-white">' +
+            '<center>' +
+            '<h5 class="card-title is-size-5">'+ date[i] +'</h5>' +
+            '<p><img src="' + forecastiIconUrl + '"></p>' + 
+            '<p><b>High:</b> '+weatherData.list[i].main.temp_max+' °F</p>' +
+            '<p><b>Low:</b> '+weatherData.list[i].main.temp_min+' °F</p>' +
+           '<p><b>Humidity:</b> '+weatherData.list[i].main.humidity+'%</p>' +
+           '<p><b>Wind Speed:</b> '+weatherData.list[i].wind.speed+' MPH</p>' +
+          '</div>' +
+      '</div>'
+
+      div.innerHTML = innerHtml
+     forecastCardsTwoEl.appendChild(div)
+    }; 
+  };
 };
 
 //event listeners
