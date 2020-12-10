@@ -16,7 +16,8 @@
 * https://evan-wer.github.io/Travel-Buddy/
 
 ## Take a Look:
-![Nomader Snapshot](/assets/images/Nomader_Screenshot.jpg?raw=true "Nomader Sneak Peak")
+![Nomader Snapshot](https://github.com/Evan-Wer/Travel-Buddy/blob/main/assets/images/Nomader_Screenshot.JPG)
+
 
 ## Contributors
 Melanie Schellberg,
