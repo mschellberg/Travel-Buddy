@@ -16,7 +16,7 @@
 * https://evan-wer.github.io/Travel-Buddy/
 
 ## Take a Look:
-![Nomader Snapshot](./assets/images/Nomader_Screenshot.png)
+![Nomader Snapshot](../assets/images/Nomader_Screenshot.png)
 
 ## Contributors
 Melanie Schellberg,
