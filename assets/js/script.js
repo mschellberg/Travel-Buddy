@@ -169,7 +169,6 @@ fetch("https://api.openweathermap.org/data/2.5/forecast/?q=" + city + "," + stat
   if (response.ok) {
     response.json().then(function(data) {
     displayCurrentWeather(data)
-     console.log(data);
     });
   } 
 })
@@ -295,6 +294,7 @@ $("#start").click(function() {
   
   // Push first location to map
   $("#autocomplete").val(localStorage.getItem('location1'));
+ 
 
   // Map 1 Search Box
   $("#plan").trigger('click')
