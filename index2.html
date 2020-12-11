@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/stylesheet.css" />
   </head>
-
+<body>
 <!--Hero Section-->
 <section class="hero is-info is-medium">
   <div class="hero-head">
@@ -18,9 +18,9 @@
             <img src="assets/images/logo-idea-2-white.png" alt="Logo">
           </a>
           <span class="navbar-burger burger" data-target="navbarMenuHeroB">
-            <span class= "has-text-white"></span>
-            <span class= "has-text-white"></span>
-            <span class= "has-text-white"></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </span>
         </div>
         <div id="navbarMenuHeroB" class="navbar-menu">
@@ -58,13 +58,12 @@
     <nav class="tabs is-boxed is-fullwidth">
       <div class="container">
         <ul>
+          <li>
+            <a href="index.html"><span class="icon is-small"><i class="fas fa-home" aria-hidden="true"></i></span>
+              <span>Home</span></a>
+          </li>
           <li class="is-active">
             <a>
-            <span class="icon is-small"><i class="fas fa-home" aria-hidden="true"></i></span>
-            <span>Home</span></a>
-          </li>
-          <li>
-            <a href="index2.html">
               <span class="icon is-small"><i class="fas fa-save" aria-hidden="true"></i></span>
               <span>Saved Trips</span></a>
           </li>
@@ -94,26 +93,31 @@
             <form class="user-form-one">
               <label for="name">Desired Destination:</label>
               <input class="input is-info autocomplete" type="text" id="autocomplete" placeholder="Enter Location">
-              <input id="button" type="submit" value="Get Planning!" id="plan">            </input>
+              <input class="button" type="submit" value="Get Planning!">            </input>
             </form>
           </div>
         </div>
     <div class="content">
+          The search keyword's submit button should use that keyword as search criteria
         </div>
       </div>
     </div>
   
   </div>
-  <div class="column" id="forecast">
+  <div class="column" id="weather">
     <div class="card">
         <div class="card-image">
         </div>
       <div class="card-content">
         <div class="media">
-            <div class="media-content five-day-forecast" id="forecast-card-container">
-                <center><h1 class="is-size-4 has-text-info">5-Day Forecast: </h1></center>
+            <div class="media-content five-day-forecast" id="forecast-card-container"">
+                <p class="title is-4">
+                <span id="weather-search-term-one" class="weather-search-term-one"></span> </p>
+                <div id="weather-container-one"></div>
                 <h2 id="current-city-title"></h2>
-                <div class="card-deck" id="forecast-cards"></div>
+                          <p>Temperature: <span id="current-city-temp"></span> °F</p>
+                          <p>Humidity: <span id="current-city-humidity"></span>%</p>
+                          <p>Wind Speed: <span id="current-city-wind" ></span> MPH</p>
             </div>
         </div>
 
@@ -137,12 +141,13 @@
                 <form class="user-form-two">
                   <label for="name">Desired Destination:</label>
                   <input  class="input is-info autocomplete" type="text" id="autocomplete2" placeholder="Enter Location">
-                  <input class="button" type="submit" value="Get Planning!" id="plan2">            </input>
+                  <input class="button" type="submit" value="Get Planning!">            </input>
                 </form>
             </div>
         </div>
     
         <div class="content">
+          The search keyword's submit button should use that keyword as search criteria
         </div>
       </div>
     </div>
@@ -154,10 +159,14 @@
     </div>
     <div class="card-content">
       <div class="media">
-        <div class="media-content five-day-forecast" id="forecast-card-container">
-          <center><h1 class="is-size-4 has-text-info">5-Day Forecast: </h1></center>
-          <h2 id="current-city-title"></h2>
-          <div class="card-deck" id="forecast-cards-two"></div>
+          <div class="media-content">
+              <p class="title is-4">
+              <span id="weather-search-term-two" class="weather-search-term-one"></span> </p>
+              <div id="weather-container-two"></div>
+              <h2 id="current-city-title"></h2>
+                        <p>Temperature: <span id="current-city-temp-two"></span> °F</p>
+                        <p>Humidity: <span id="current-city-humidity-two"></span>%</p>
+                        <p>Wind Speed: <span id="current-city-wind-two" ></span> MPH</p>
           </div>
       </div>
   </div>
@@ -170,47 +179,13 @@
     <img src="./assets/images/IG-gif.gif">
   </center>
 </div>
-
-<!--Modal-->
-<div class="modal" id="welcome">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head has-background-info">
-      <p class="modal-card-title has-text-white">Welcome to Nomader!</p>
-    </header>
-    <section class="modal-card-body">
-      <p class="pb-1">We're here to so you can go there!</p>
-      <p class="pb-2">Already have a trip in mind? Click below to get started</p>
-      <div class="control">
-        <input class="input is-success" type="text" id="location-1" placeholder="Trip Destination">
-      </div>
-      <div class="control">
-        <input class="input is-success" type="text" id="location-2" placeholder="Trip Destination">
-      </div>
-    </section>
-    <footer class="modal-card-foot">
-      <div class="field">
-      <button class="button is-success" id="start">Get Started</button>
-      <button class="button" id="cancel">Cancel</button>
-      </div>
-    </footer>
-  </div>
-</div>
-
-
 <footer class="has-background-info">
-  <div class="row">
-  <center>
-  <h2 class="has-text-white">Created by Melanie Schellberg, Stefanie Tinsley, Evan Werner</h2>
-  <h5 class="has-text-white">&copy; 2020</h5>
-  </center>
-  </div>
+  <h2>Created by Us for You__________________________________________________________footer stuff down here</h2>
 </footer>
 
 
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="./assets/js/script.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 <script async defer
