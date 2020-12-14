@@ -34,7 +34,7 @@
             <a class="navbar-item" href="#forecast">
               Weather
             </a>
-            <a class="navbar-item saved-trips" href="index2.html">
+            <a class="navbar-item saved-trips" id ="start1" href="index2.html">
               Saved Trips
             </a>
           </div>
@@ -165,11 +165,38 @@
 </div>
 </div>
 </div>
+
+<section class="section">
+  <div class="container has-background-white">
 <div class="row">
   <center>
+    <h1 class="is-size-4 has-text-light has-background-dark" id="bucket-list">Destination Bucket List </h1> 
+  <div class="columns">
+    <div class="column">
+<h3 class="is-size-5 has-text-info">Enter a location here! </h3>
+<p class=" has-text-dark"><em>Create a list of locations you want to research!</em>  </p>
+<div class="control">
+  <input class="input is-hovered" type="text" id="blInput" placeholder="Enter a destination here!">
+  <input class="button" type="submit" value="Save Location" id="bucketListButton">    
+</div>
+  </div>
+  <div class="column">
+    <h4 class="is-size-5 has-text-info" id="saved-bl-items">Destinations:</h4>
+    <ul id="savedBL">
+    </ul>
+  </div>
+</div>
+  </div>
+    <div class="row">
+      <hr>
     <img src="./assets/images/IG-gif.gif">
   </center>
 </div>
+</div>
+</section>
+
+
+
 
 <!--Modal-->
 <div class="modal" id="welcome">
@@ -197,7 +224,6 @@
   </div>
 </div>
 
-
 <footer class="has-background-info">
   <div class="row">
   <center>
@@ -211,10 +237,11 @@
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script src="./assets/js/script.js"></script>
+
 <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY3JAw5zIUpQLboyxPQksNoQiOKF0_63U&libraries=places&callback=initMap" type="text/javascript"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
