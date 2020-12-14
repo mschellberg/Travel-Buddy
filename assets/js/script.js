@@ -7,6 +7,14 @@ $(document).ready(function() {
   };
 });
 
+var generalPlaces = [];
+var marker = {};
+var bounds = {};
+var generalPlaces2 = [];
+var bound2 = [];
+var marker2 = [];
+
+
 // Setting up the map - Map A
 function initMap() {
   var philadelphia = new google.maps.LatLng(39.9526, -75.1652);
@@ -14,41 +22,39 @@ function initMap() {
   map = new google.maps.Map(
       document.getElementById('map'), {center: philadelphia, zoom:13});
 
-      var marker = new google.maps.Marker({
+          marker = new google.maps.Marker({
           position: philadelphia,
           map: map,
           draggable: true
       });
+
 // Map A Search Box
-  var input = document.getElementById("autocomplete");
-  var searchBox = new google.maps.places.SearchBox(input);
-  console.log(input)
+var input = document.getElementById("autocomplete");
+var searchBox = new google.maps.places.SearchBox(input);
+console.log(input)
 
-  google.maps.event.addListener(searchBox, 'places_changed', function(){
-      var places = this.getPlaces();
-     
-      var srcLocation = $(input).val();
-// Location search appears in the title element
-      $("#locationTitle").text(srcLocation);
-      //saveLocation(location);
-      
-      var bounds = new google.maps.LatLngBounds ();
-      for(i=0; place=places[i];i++){
-          bounds.extend(place.geometry.location);
-          marker.setPosition(place.geometry.location);
-      }
-      map.fitBounds(bounds);
-      map.setZoom(15);
-      
-  });
+google.maps.event.addListener(searchBox, 'places_changed', function(){
+  
+  var places = this.getPlaces();
+  console.log(generalPlaces, 'goodbye');
+  generalPlaces = places;
+ console.log(generalPlaces, 'hello world');
 
+  bounds = new google.maps.LatLngBounds ();
+
+  
+
+  
+});  
+
+  
 // Map B
   var philadelphia2 = new google.maps.LatLng(39.9526, -75.1652);
   map2 = 
   new google.maps.Map(
       document.getElementById('map2'), {center: philadelphia2, zoom:13});
 
-      var marker2 = new google.maps.Marker({
+          marker2 = new google.maps.Marker({
           position: philadelphia2,
           map: map2,
           draggable: true
@@ -56,22 +62,20 @@ function initMap() {
 // Map B Search Box
   var input2 = document.getElementById("autocomplete2");
   var searchBox2 = new google.maps.places.SearchBox(input2);
+  console.log(input + 'hello')
   google.maps.event.addListener(searchBox2, 'places_changed', function(){
-      var places2 = searchBox2.getPlaces();
-      destinationLocation = $(input2).val();
-      
-      $("#locationTitle2").text(destinationLocation);
-      
-      var bounds2 = new google.maps.LatLngBounds ();
-      for(i=0; place=places2[i];i++){
-          bounds2.extend(place.geometry.location);
-          marker2.setPosition(place.geometry.location);
-      }
+      var places2 = this.getPlaces();
+      console.log(generalPlaces2, 'goodbye');
+      generalPlaces2 = places2;
 
-      map2.fitBounds(bounds2);
-      map2.setZoom(15);
+ 
+      
+      bounds2 = new google.maps.LatLngBounds ();
+      
 });
-}
+
+
+
 /*
 // Local Storage
 function saveLocation(locationString) {
@@ -85,7 +89,7 @@ function getLocation() {
       return "";
   }
 }*/
-
+}
 
 //var for the form: <form> and <input> elements
 var userFormOneEl = document.querySelector(".user-form-one");
@@ -132,18 +136,29 @@ if ($navbarBurgers.length > 0) {
 
 //to be executed upon a form submission browser event 
 var formSubmitHandler = function(event) {
-event.preventDefault();
-//get value from input element
-var city = destinationOneInputEl.value.trim();
-if(city) {
-  getUserCity(city); //if there is a value, the value is passed to getUserCity function as argument 
-  destinationOneInputEl.value=""; //clears form
-} /*else {
-  alert("Please enter a city and state")
-  return;
-};*/
+  event.preventDefault();
+  //get value from input element
+  var city = destinationOneInputEl.value.trim();
+  console.log(destinationOneInputEl.value + 'world');
+  if(city) { 
+      
+  for(i=0; place=generalPlaces[i];i++){
+      bounds.extend(place.geometry.location);
+      marker.setPosition(place.geometry.location);
+  }
+  map.fitBounds(bounds);
+  map.setZoom(15);
+  
 
-};
+    getUserCity(city); //if there is a value, the value is passed to getUserCity function as argument 
+    destinationOneInputEl.value=""; //clears form
+  } /*else {
+    alert("Please enter a city and state")
+    return;
+  };*/
+  
+  };
+
 
 //Weather B
 
@@ -153,6 +168,16 @@ event.preventDefault();
 //get value from input element
 var city = destinationTwoInputEl.value.trim();
 if(city) {
+
+  for(i=0; place=generalPlaces2[i];i++){
+      bounds2.extend(place.geometry.location);
+      marker2.setPosition(place.geometry.location);
+  }
+  map2.fitBounds(bounds2);
+  map2.setZoom(15);
+
+
+
   getUserCityTwo(city); //if there is a value, the value is passed to getUserCity function as argument 
   destinationTwoInputEl.value=""; //clears form
 } /*else {
@@ -169,6 +194,7 @@ fetch("https://api.openweathermap.org/data/2.5/forecast/?q=" + city + "," + stat
   if (response.ok) {
     response.json().then(function(data) {
     displayCurrentWeather(data)
+     console.log(data);
     });
   } 
 })
@@ -294,7 +320,6 @@ $("#start").click(function() {
   
   // Push first location to map
   $("#autocomplete").val(localStorage.getItem('location1'));
- 
 
   // Map 1 Search Box
   $("#plan").trigger('click')
@@ -308,4 +333,53 @@ $("#start").click(function() {
 
 $("#cancel").click(function() {
   $("#welcome").removeClass("is-active")
+
 });
+
+
+//BUCKET LIST SECTION
+
+var blInputEl = document.getElementById("blInput");
+var submitBLInput = document.getElementById("bucketListButton");
+var blItems = document.getElementById("savedBL");
+blInputs = [];
+
+
+var saveBlTerm = function (event) {
+  event.preventDefault();
+  var bucketListInputs = blInputEl.value
+
+  blInputs.push(bucketListInputs);
+ 
+
+    localStorage.setItem("blInputs",JSON.stringify(blInputs))
+
+    // clear the input box after button click 
+
+   blInputEl.value = ""
+
+   
+    loadBucketList();
+
+};
+
+var loadBucketList = function () {
+  
+  blInputs = JSON.parse(localStorage.getItem("blInputs")) || [];
+
+      for (var i= 0; i < blInputs.length; i++) {
+
+          var li = document.createElement("li")
+
+          li.innerHTML = blInputs[i]
+
+          blItems.appendChild(li)
+      }
+  
+};
+
+
+loadBucketList();
+
+//event listener
+submitBLInput.addEventListener("click", saveBlTerm);
