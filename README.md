@@ -12,10 +12,10 @@
 * JavaScript
 * jQuery JS Library
 
-## Website
+## Link to deployed application:
 * https://evan-wer.github.io/Travel-Buddy/
 
-## Take a Look:
+## Screenshot of application
 ![Nomader Snapshot](https://github.com/Evan-Wer/Travel-Buddy/blob/main/assets/images/Nomader_Screenshot.JPG)
 
 
